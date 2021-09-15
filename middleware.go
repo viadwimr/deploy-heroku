@@ -29,7 +29,3 @@ func AllowOnlyGET(w http.ResponseWriter, r *http.Request) bool {
 
     return true
 }
-
-// func HandleFunc("/student", func(w http.ResponseWriter, r *http.Request)  {
-	
-// }

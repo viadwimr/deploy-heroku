@@ -37,7 +37,7 @@ func ActionStudent(w http.ResponseWriter, r *http.Request) {
         OutputJSON(w, SelectStudent(id))
         return
     }
-
+    
     OutputJSON(w, GetStudents())
 }
 
