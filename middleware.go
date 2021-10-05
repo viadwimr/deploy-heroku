@@ -2,8 +2,8 @@ package main
 
 import "net/http"
 
-const USERNAME = "batman"
-const PASSWORD = "secret"
+const USERNAME = "mviadwi"
+const PASSWORD = "password"
 
 func Auth(w http.ResponseWriter, r *http.Request) bool {
     username, password, ok := r.BasicAuth()

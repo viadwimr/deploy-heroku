@@ -1,3 +1,3 @@
-# basic-auth
+# deploy-heroku
 How to run:
-go run *.go
+make run

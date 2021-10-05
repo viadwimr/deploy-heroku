@@ -5,40 +5,26 @@ import "fmt"
 import "encoding/json"
 
 func main() {
-    http.HandleFunc("/student", ActionStudent)
+    http.HandleFunc("/", ActionUser)
 
     server := new(http.Server)
     server.Addr = ":9000"
 
     fmt.Println("server started at localhost:9000")
     server.ListenAndServe()
-	/*
-	    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        switch r.Method {
-        case "POST":
-            w.Write([]byte("post"))
-        case "GET":
-            w.Write([]byte("get"))
-        default:
-            http.Error(w, "", http.StatusBadRequest)
-        }
-    })
 
-    fmt.Println("server started at localhost:9000")
-    http.ListenAndServe(":9000", nil)
-	*/
 }
 
-func ActionStudent(w http.ResponseWriter, r *http.Request) {
+func ActionUser(w http.ResponseWriter, r *http.Request) {
     if !Auth(w, r)         { return }
     if !AllowOnlyGET(w, r) { return }
 
     if id := r.URL.Query().Get("id"); id != "" {
-        OutputJSON(w, SelectStudent(id))
+        OutputJSON(w, SelectUser(id))
         return
     }
     
-    OutputJSON(w, GetStudents())
+    OutputJSON(w, GetUsers())
 }
 
 func OutputJSON(w http.ResponseWriter, o interface{}) {

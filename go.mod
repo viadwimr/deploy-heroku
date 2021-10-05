@@ -1,3 +1,3 @@
-module basic-auth
+module deploy-heroku
 
 go 1.16

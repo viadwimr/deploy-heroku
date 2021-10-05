@@ -1,1 +1,1 @@
-web: bin/basic-auth
+web: bin/deploy-heroku
